@@ -1,0 +1,14 @@
+version: '3'
+services:
+  db:
+    build:
+      context: .
+      dockerfile: db.Dockerfile
+    ports:
+      - 15432:5432
+    environment:
+      POSTGRES_DB: graphql_eager_loading_sample
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      PGPASSWORD: postgres
+      DATABASE_HOST: localhost
