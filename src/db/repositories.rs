@@ -13,7 +13,7 @@ impl UserRepository {
         use crate::schema::users;
         users::table
             .load::<User>(&context.pool.get().unwrap())
-            .and_then(|users| Ok(users.into_iter().map_into().collect_vec()))
+            .map(|users| users.into_iter().map_into().collect_vec())
     }
     pub fn insert_user(
         context: &Context,
